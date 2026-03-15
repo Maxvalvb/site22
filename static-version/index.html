@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tebve - Разработка сайтов под ключ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <style>
+        :root {
+            --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+            --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+        }
+        body { font-family: var(--font-sans); font-display: swap; }
+        .font-display { font-family: var(--font-display); font-display: swap; }
+        .font-mono { font-family: var(--font-mono); font-display: swap; }
+        
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+                linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .bg-dot-pattern {
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .markdown-body { font-size: 16px; line-height: 1.5; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .cursor { animation: blink 1s infinite; }
+        .modal-open { overflow: hidden; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* PageSpeed Optimizations */
+        img { content-visibility: auto; }
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107688915', 'ym');
+
+        ym(107688915, 'init', {ssr:true, webvisor:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/107688915" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+<body class="bg-white text-slate-900 selection:bg-[#2563e8] selection:text-white overflow-x-hidden relative">
+    <!-- Global Background Pattern -->
+    <div class="fixed inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none z-0"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-4 md:gap-8">
+                <div class="flex flex-col items-start justify-center">
+                    <div class="font-display font-bold text-2xl md:text-3xl tracking-[-0.05em] text-gray-900 leading-none">Tebve</div>
+                    <div class="text-[9px] md:text-[10px] font-mono text-slate-500 uppercase tracking-widest mt-1">Разработка сайтов под ключ</div>
+                </div>
+                <div class="hidden lg:flex items-center gap-1">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-blue-50 text-[#2563e8] border-blue-200 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2563e8]"></span>
+                        Готовы к новым проектам
+                    </span>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+                <a href="#services">Услуги</a>
+                <a href="#process">Процесс</a>
+                <a href="#portfolio">Что мы умеем</a>
+                <a href="#pricing">Тарифы</a>
+            </div>
+            <a href="#contact" class="bg-slate-900 text-white px-5 py-2 md:px-6 md:py-2.5 rounded-lg text-sm font-medium shadow-md flex items-center gap-2">
+                <span class="hidden sm:inline">Обсудить проект</span>
+                <span class="sm:hidden">Связаться</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+    </nav>
+
+    <main class="relative z-10">
+        <!-- Hero Section -->
+        <section class="pt-28 md:pt-32 pb-12 md:pb-16 px-4 md:px-6 max-w-7xl mx-auto flex flex-col justify-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-12 relative z-10 text-center">
+                    <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-6">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-slate-100 text-slate-600 border-slate-200">Разработка сайтов</span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-slate-100 text-slate-600 border-slate-200">Дизайн под ключ</span>
+                        <span class="text-xs font-mono text-slate-400">EST. 2026</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-[5rem] leading-[1.15] md:leading-[1.05] font-display font-bold tracking-tight uppercase mb-6 md:mb-8 min-h-[160px] sm:min-h-[180px] md:min-h-[240px]">
+                        Создаем сайты,<br /> которые <br class="sm:hidden" />
+                        <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-[#2563e8] to-blue-400 py-1"></span>
+                        <span class="text-[#2563e8] font-light cursor">|</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-600 font-light leading-relaxed max-w-2xl mx-auto mb-8 md:mb-10">
+                        Проектируем и разрабатываем современные корпоративные сайты и конверсионные лендинги. Берем на себя всё: от дизайна до запуска.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#contact" class="bg-[#2563e8] text-white rounded-xl px-8 py-4 flex items-center justify-center gap-3 text-lg font-medium shadow-xl shadow-blue-500/20">
+                            Заказать сайт <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#pricing" class="bg-white text-slate-900 border border-slate-200 rounded-xl px-8 py-4 flex items-center justify-center gap-3 text-lg font-medium shadow-sm">
+                            Смотреть тарифы
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 md:gap-8">
+                <div>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-blue-50 text-[#2563e8] border-blue-200 mb-4">Наши компетенции</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight uppercase">Комплексная<br />Разработка</h2>
+                </div>
+                <p class="max-w-md text-slate-600 font-light text-base md:text-lg">Мы создаем сайты под ключ: от идеи и дизайна до верстки, настройки хостинга и базового SEO-продвижения.</p>
+            </div>
+            <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Services will be injected here -->
+            </div>
+            <div class="lg:col-span-4 bg-slate-900 rounded-[32px] p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 relative overflow-hidden mt-6 bg-grid-pattern">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-[#2563e8] rounded-full blur-[80px] opacity-40"></div>
+                <div class="relative z-10 max-w-2xl">
+                    <h3 class="text-2xl md:text-3xl font-display font-bold text-white uppercase mb-4">Нужна нестандартная разработка?</h3>
+                    <p class="text-slate-400 text-sm md:text-base">Соберем выделенную команду под ваш проект. Frontend, Backend, DevOps и QA инженеры уровня Middle+ и Senior.</p>
+                </div>
+                <a href="#contact" class="relative z-10 bg-white text-slate-900 rounded-xl px-6 md:px-8 py-3 md:py-4 font-medium flex items-center gap-2 whitespace-nowrap w-full md:w-auto justify-center">
+                    Обсудить задачу <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="py-20 md:py-32 bg-slate-50 border-y border-slate-200 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 md:px-6">
+                <div class="text-center mb-16 md:mb-20">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-white text-[#2563e8] border-blue-200 mb-4 shadow-sm">Как мы работаем</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight uppercase">Прозрачный процесс</h2>
+                </div>
+                <div class="relative">
+                    <div class="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2 z-0"></div>
+                    <div id="process-grid" class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative z-10">
+                        <!-- Process steps will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6">
+                <div>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-blue-50 text-[#2563e8] border-blue-200 mb-4">Наши работы</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight uppercase">Что мы<br />умеем</h2>
+                </div>
+                <p class="max-w-md text-slate-600 text-sm md:text-base leading-relaxed">
+                    <span class="font-bold text-[#2563e8]">Дисклеймер:</span> Представленные работы — лишь образец. Стиль и дизайн примеров сайтов кому-то может не понравиться, но при разработке ваших проектов будут учитываться ваши предпочтения и ТЗ.
+                </p>
+            </div>
+            <div id="portfolio-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <!-- Portfolio items will be injected here -->
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto overflow-hidden">
+            <div class="text-center mb-16 md:mb-20">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-blue-50 text-[#2563e8] border-blue-200 mb-4">Почему мы</span>
+                <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight uppercase">Сравнение</h2>
+                <p class="text-slate-600 mt-6 max-w-2xl mx-auto text-lg">Наглядная таблица, показывающая, почему индивидуальная разработка под ключ надежнее и выгоднее.</p>
+            </div>
+            <div class="overflow-x-auto pb-8">
+                <div class="min-w-[800px] bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="grid grid-cols-4 bg-slate-50 border-b border-slate-200">
+                        <div class="p-6 font-medium text-slate-500 text-sm uppercase tracking-wider">Критерий</div>
+                        <div class="p-6 font-bold text-slate-900 text-center border-l border-slate-200 text-lg">Студия (Мы)</div>
+                        <div class="p-6 font-medium text-slate-600 text-center border-l border-slate-200">Фрилансеры</div>
+                        <div class="p-6 font-medium text-slate-600 text-center border-l border-slate-200">Конструкторы</div>
+                    </div>
+                    <div id="comparison-rows" class="divide-y divide-slate-100">
+                        <!-- Comparison rows will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20 md:py-32 bg-slate-50 border-y border-slate-200 overflow-hidden">
+            <div class="max-w-5xl mx-auto px-4 md:px-6">
+                <div class="text-center mb-16 md:mb-20">
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-white text-[#2563e8] border-blue-200 mb-4 shadow-sm">Инвестиции</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold tracking-tight uppercase">Стоимость разработки</h2>
+                </div>
+                <div id="pricing-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Pricing plans will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <footer id="contact" class="bg-slate-900 text-white pt-20 md:pt-32 pb-8 md:pb-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[500px] md:w-[800px] h-[500px] md:h-[800px] bg-[#2563e8] rounded-full blur-[150px] md:blur-[200px] opacity-20 pointer-events-none"></div>
+            <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 mb-20 md:mb-32">
+                    <div>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-white/10 text-white border-white/20 mb-6">F.A.Q.</span>
+                        <h2 class="text-3xl md:text-4xl font-display font-bold uppercase mb-8 md:mb-10">Частые вопросы</h2>
+                        <div id="faq-list" class="space-y-3 md:space-y-4">
+                            <!-- FAQs will be injected here -->
+                        </div>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 rounded-[32px] md:rounded-[40px] p-6 md:p-10 backdrop-blur-md">
+                        <h2 class="text-2xl md:text-3xl font-display font-bold uppercase mb-2">Начать проект</h2>
+                        <p class="text-slate-400 text-sm md:text-base mb-6 md:mb-8">Оставьте заявку, обсудим задачу и рассчитаем смету.</p>
+                        <div class="w-full overflow-hidden rounded-xl bg-white/5">
+                            <iframe
+                                src="https://forms.yandex.ru/cloud/68e6556e5056905ef4e08d8b?iframe=1"
+                                frameBorder="0"
+                                name="ya-form-68e6556e5056905ef4e08d8b"
+                                class="w-full min-h-[600px]"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/10 gap-8">
+                    <div class="flex flex-col items-start">
+                        <div class="font-bold text-2xl tracking-tight">Tebve</div>
+                        <div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest mt-1">© 2026 Все права защищены</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 z-[100] hidden">
+        <div class="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="absolute inset-4 md:inset-10 bg-white rounded-[32px] overflow-hidden shadow-2xl flex flex-col">
+            <div class="h-16 border-b border-slate-200 flex items-center justify-between px-6 bg-white relative z-10">
+                <div id="modal-title" class="font-bold text-lg uppercase tracking-tight"></div>
+                <button onclick="closeModal()" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-slate-200">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="flex-grow relative bg-slate-100">
+                <iframe id="modal-iframe" src="" class="w-full h-full border-none" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Data ---
+        const services = [
+            { title:"Лендинги", desc:"Одностраничные сайты с высокой конверсией для ваших товаров или услуг.", icon: "layout-template", tags: ["Дизайн","Верстка","Конверсия"], stats:"Быстрый запуск" },
+            { title:"Корпоративные сайты", desc:"Многостраничные сайты для бизнеса, формирующие доверие и имидж.", icon: "briefcase", tags: ["Многостраничность","CMS","Каталог"], stats:"Лицо компании" },
+            { title:"Хостинг и Домен", desc:"Предоставляем 30 дней бесплатного хостинга и домен в подарок.", icon: "server", tags: ["Бесплатно 30 дней","Домен в подарок"], stats:"Всё включено" },
+            { title:"SEO-оптимизация", desc:"Базовая настройка сайта для успешного продвижения в Яндекс и Google.", icon: "search", tags: ["Мета-теги","Скорость","Индексация"], stats:"Органический рост" }
+        ];
+
+        const processSteps = [
+            { num:"01", title:"Обсуждение", desc:"Связываемся с вами, обсуждаем детали, цели и задачи вашего будущего сайта.", icon: "message-circle" },
+            { num:"02", title:"Предоплата", desc:"Утверждаем план работ, и вы вносите предоплату для старта.", icon: "credit-card" },
+            { num:"03", title:"Разработка", desc:"Создаем уникальный дизайн, верстаем и программируем сайт под ваши нужды.", icon: "code-2" },
+            { num:"04", title:"Правки и Финал", desc:"Показываем готовый сайт, вносим ваши правки, тестируем и запускаем проект.", icon: "check-circle" }
+        ];
+
+        const portfolioItems = [
+            { title:"Сайт строительной компании", client:"СтройИнвест", category:"Корпоративный", year:"2026", projectUrl:"projects/construction.html", tech: ["Уникальный дизайн","SEO","CMS"] },
+            { title:"Лендинг фитнес-клуба", client:"IronFir", category:"Лендинг", year:"2025", projectUrl:"projects/fitness.html", tech: ["Анимации","Формы","Адаптив"] },
+            { title:"Сайт ресторана", client:"Gourmet", category:"Сайт-визитка", year:"2026", projectUrl:"projects/restaurant.html", tech: ["Меню","Бронь","Дизайн"] },
+            { title:"Магазин эко-товаров", client:"EcoStore", category:"E-commerce", year:"2025", projectUrl:"projects/ecostore.html", tech: ["Каталог","Корзина","Оплата"] }
+        ];
+
+        const pricingPlans = [
+            { title:"Сайт под ключ", price:"15 000 ₽", time:"от 2 дней", features: ["Уникальный дизайн","Адаптивная верстка (ПК и мобильные)","Базовая SEO-оптимизация","Домен в подарок","30 дней хостинга бесплатно"], popular: true },
+            { title:"Индивидуальная разработка", price:"По запросу", time:"от 7 дней", features: ["Сложный корпоративный сайт или магазин","Интеграция с CRM и сервисами","Панель управления (CMS)","Расширенная аналитика","Уникальные анимации и функционал"] }
+        ];
+
+        const faqs = [
+            { q:"Что входит в стоимость сайта за 15 000 руб?", a:"В эту стоимость входит полноценный лендинг или сайт-визитка: уникальный дизайн, адаптивная верстка под все устройства, настройка форм обратной связи, базовая SEO-оптимизация, а также домен в подарок и месяц бесплатного хостинга." },
+            { q:"Как происходит процесс оплаты?", a:"Мы работаем по прозрачной схеме: после обсуждения проекта вы вносите предоплату 50%. Оставшиеся 50% оплачиваются только после того, как вы примете готовую работу и мы внесем все финальные правки." },
+            { q:"Сайт будет нормально работать на телефоне?", a:"Да, абсолютно все сайты, которые мы создаем, имеют адаптивную верстку. Они будут идеально выглядеть и быстро работать как на компьютерах, так и на смартфонах и планшетах." },
+            { q:"Вы предоставляете хостинг и домен?", a:"Да! Для тарифа «Сайт под ключ» мы дарим доменное имя на 1 год и предоставляем 30 дней бесплатного хостинга, чтобы вы могли сразу запустить проект без лишних забот." }
+        ];
+
+        const comparisonData = [
+            { feature: "Уникальный дизайн под ваш бренд", us: true, freelancer: "50/50", builder: false },
+            { feature: "Соблюдение сроков по договору", us: true, freelancer: false, builder: true },
+            { feature: "Высокая скорость загрузки (SEO)", us: true, freelancer: "50/50", builder: false },
+            { feature: "Отсутствие абонентской платы", us: true, freelancer: true, builder: false },
+            { feature: "Комплексный подход (аналитика, текст, код)", us: true, freelancer: false, builder: false },
+            { feature: "Техническая поддержка после сдачи", us: true, freelancer: false, builder: false }
+        ];
+
+        // --- Typewriter ---
+        const words = ["продают ваши услуги", "приводят клиентов", "выделяют вас", "работают на имидж", "растят ваш бизнес"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterEl = document.getElementById('typewriter');
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 30 : 80;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // --- Injection ---
+        function injectServices() {
+            const grid = document.getElementById('services-grid');
+            services.forEach(srv => {
+                const card = document.createElement('div');
+                card.className = "group bg-white border border-slate-200 rounded-[32px] p-6 md:p-8 flex flex-col relative overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500 hover:-translate-y-1";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-8 md:mb-12">
+                        <div class="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-600 shadow-sm">
+                            <i data-lucide="${srv.icon}"></i>
+                        </div>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-slate-50 text-slate-500 border-slate-200">${srv.stats}</span>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-display font-bold uppercase mb-3 md:mb-4 text-slate-900">${srv.title}</h3>
+                    <p class="text-slate-600 mb-6 md:mb-8 flex-grow text-sm md:text-base">${srv.desc}</p>
+                    <div class="flex flex-wrap gap-2 mt-auto pt-6 border-t border-slate-100">
+                        ${srv.tags.map(tag => `<span class="text-[10px] md:text-xs font-mono text-slate-500 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-100">${tag}</span>`).join('')}
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function injectProcess() {
+            const grid = document.getElementById('process-grid');
+            processSteps.forEach((step, i) => {
+                const div = document.createElement('div');
+                div.className = "relative group";
+                div.innerHTML = `
+                    <div class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-white border-4 border-slate-300 z-20"></div>
+                    <div class="bg-white border border-slate-200 p-6 md:p-8 rounded-3xl shadow-sm ${i % 2 === 0 ? 'md:mb-32' : 'md:mt-32'}">
+                        <div class="flex justify-between items-center mb-6">
+                            <div class="text-3xl md:text-4xl font-bold text-slate-200">${step.num}</div>
+                            <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400">
+                                <i data-lucide="${step.icon}"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-900 mb-3">${step.title}</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">${step.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function injectPortfolio() {
+            const grid = document.getElementById('portfolio-grid');
+            portfolioItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "group relative rounded-[32px] overflow-hidden border border-slate-200 bg-slate-100 aspect-[4/3] md:aspect-auto md:h-[500px] lg:h-[600px] cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-slate-900/20";
+                div.onclick = () => openModal(item.projectUrl, item.title);
+                div.innerHTML = `
+                    <div class="absolute inset-0 w-full h-full pointer-events-none">
+                        <iframe src="${item.projectUrl}" class="w-full h-full border-none" scrolling="no" tabIndex="-1" loading="lazy"></iframe>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-900/60 pointer-events-none"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/70 to-transparent pointer-events-none"></div>
+                    <div class="absolute top-4 md:top-6 left-4 md:left-6 right-4 md:right-6 flex justify-between items-center pointer-events-none">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-white/10 text-white border-white/20 backdrop-blur-md">${item.category}</span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider border bg-white/10 text-white border-white/20 backdrop-blur-md">${item.year}</span>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 pointer-events-none">
+                        <div class="text-white/70 font-mono text-xs md:text-sm mb-2">${item.client}</div>
+                        <h3 class="text-2xl md:text-3xl font-display font-bold text-white uppercase mb-4 md:mb-6">${item.title}</h3>
+                        <div class="flex justify-between items-center">
+                            <div class="flex flex-wrap gap-2">
+                                ${item.tech.map(t => `<span class="text-[10px] md:text-xs font-mono text-white/80 bg-white/10 px-2 md:px-3 py-1 md:py-1.5 rounded-lg backdrop-blur-md border border-white/10">${t}</span>`).join('')}
+                            </div>
+                            <div class="hidden sm:flex w-10 h-10 md:w-12 md:h-12 rounded-full bg-white text-slate-900 items-center justify-center flex-shrink-0 ml-4">
+                                <i data-lucide="arrow-up-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function injectComparison() {
+            const container = document.getElementById('comparison-rows');
+            comparisonData.forEach(row => {
+                const div = document.createElement('div');
+                div.className = "grid grid-cols-4";
+                div.innerHTML = `
+                    <div class="p-6 flex items-center text-slate-700 font-medium">${row.feature}</div>
+                    <div class="p-6 border-l border-slate-100 flex items-center justify-center bg-blue-50/30">
+                        ${row.us === true ? '<div class="w-8 h-8 rounded-full bg-[#2563e8] text-white flex items-center justify-center shadow-md shadow-blue-500/20"><i data-lucide="check" class="w-5 h-5"></i></div>' : `<span class="text-slate-400 font-medium">${row.us}</span>`}
+                    </div>
+                    <div class="p-6 border-l border-slate-100 flex items-center justify-center">
+                        ${row.freelancer === true ? '<i data-lucide="check" class="text-slate-400"></i>' : row.freelancer === false ? '<i data-lucide="x" class="text-slate-300"></i>' : `<span class="text-slate-500 font-medium px-3 py-1 bg-slate-100 rounded-full text-sm">${row.freelancer}</span>`}
+                    </div>
+                    <div class="p-6 border-l border-slate-100 flex items-center justify-center">
+                        ${row.builder === true ? '<i data-lucide="check" class="text-slate-400"></i>' : row.builder === false ? '<i data-lucide="x" class="text-slate-300"></i>' : `<span class="text-slate-500 font-medium px-3 py-1 bg-slate-100 rounded-full text-sm">${row.builder}</span>`}
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function injectPricing() {
+            const grid = document.getElementById('pricing-grid');
+            pricingPlans.forEach((plan, i) => {
+                const div = document.createElement('div');
+                div.className = `relative bg-white rounded-[40px] border ${plan.popular ? 'border-[#2563e8] shadow-2xl shadow-blue-500/10' : 'border-slate-200 shadow-sm'} p-8 md:p-10 flex flex-col transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-slate-200/50`;
+                div.innerHTML = `
+                    ${plan.popular ? '<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#2563e8] text-white text-[10px] md:text-xs font-bold uppercase tracking-widest py-1.5 md:py-2 px-4 md:px-6 rounded-full shadow-lg whitespace-nowrap">Оптимальный выбор</div>' : ''}
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-xl md:text-2xl font-display font-bold text-slate-900">${plan.title}</h3>
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 flex-shrink-0 ml-4">
+                            <i data-lucide="${i === 0 ? 'layout-template' : 'code-2'}"></i>
+                        </div>
+                    </div>
+                    <div class="mb-8 pb-8 border-b border-slate-100">
+                        <div class="text-3xl md:text-4xl font-bold text-slate-900 mb-2">${plan.price}</div>
+                        <div class="flex items-center gap-2 text-slate-500 text-xs md:text-sm">
+                            <i data-lucide="clock" class="w-4 h-4"></i> Срок: ${plan.time}
+                        </div>
+                    </div>
+                    <ul class="space-y-4 md:space-y-5 mb-10 md:mb-12 flex-grow">
+                        ${plan.features.map(feat => `
+                            <li class="flex items-start gap-3">
+                                <div class="mt-0.5 md:mt-1 w-4 h-4 md:w-5 md:h-5 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-[#2563e8]">
+                                    <i data-lucide="check" class="w-3 h-3"></i>
+                                </div>
+                                <span class="text-slate-600 text-sm leading-relaxed">${feat}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <a href="#contact" class="w-full py-3 md:py-4 rounded-xl font-medium flex items-center justify-center ${plan.popular ? 'bg-[#2563e8] text-white shadow-lg shadow-blue-500/25' : 'bg-slate-50 text-slate-900 border border-slate-200'}">Заказать сайт</a>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function injectFAQs() {
+            const list = document.getElementById('faq-list');
+            faqs.forEach(faq => {
+                const div = document.createElement('div');
+                div.className = "bg-white/5 border border-white/10 rounded-2xl overflow-hidden transition-all duration-300";
+                div.innerHTML = `
+                    <button class="w-full px-6 py-4 flex justify-between items-center text-left hover:bg-white/5 transition-colors duration-300" onclick="toggleFaq(this)">
+                        <span class="font-bold text-sm md:text-base">${faq.q}</span>
+                        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-slate-400 transition-all duration-300 faq-icon-container">
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-slate-400 text-sm md:text-base leading-relaxed border-t border-white/5 pt-4 transition-all duration-300">
+                        ${faq.a}
+                    </div>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        function toggleFaq(btn) {
+            const container = btn.closest('.rounded-2xl');
+            const content = btn.nextElementSibling;
+            const iconContainer = btn.querySelector('.faq-icon-container');
+            const icon = btn.querySelector('i');
+            
+            const isOpen = !content.classList.contains('hidden');
+            
+            if (isOpen) {
+                content.classList.add('hidden');
+                iconContainer.classList.remove('bg-[#2563e8]', 'text-white');
+                iconContainer.classList.add('bg-white/10', 'text-slate-400');
+                icon.classList.remove('rotate-180');
+            } else {
+                content.classList.remove('hidden');
+                iconContainer.classList.add('bg-[#2563e8]', 'text-white');
+                iconContainer.classList.remove('bg-white/10', 'text-slate-400');
+                icon.classList.add('rotate-180');
+            }
+        }
+
+        // --- Modal ---
+        function openModal(url, title) {
+            document.getElementById('modal-iframe').src = url;
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.body.classList.add('modal-open');
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+            document.getElementById('modal-iframe').src = "";
+            document.body.classList.remove('modal-open');
+        }
+
+        // --- Init ---
+        window.onload = () => {
+            injectServices();
+            injectProcess();
+            injectPortfolio();
+            injectComparison();
+            injectPricing();
+            injectFAQs();
+            lucide.createIcons();
+            type();
+        };
+    </script>
+</body>
+</html>
