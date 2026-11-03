@@ -879,22 +879,63 @@ const ContactForm = () => {
     setStatus('submitting');
     setErrorMessage('');
 
+    const text = `🔔 *Новая заявка с сайта Febby!*\n\n` +
+                 `👤 *Имя:* ${name || 'Не указано'}\n` +
+                 `📞 *Телефон / Контакт:* ${phone || 'Не указано'}\n` +
+                 `🛠 *Услуга / Пакет:* ${service || 'Не указано'}\n` +
+                 `💬 *Сообщение:* ${message || 'Без описания'}`;
+
     try {
-      const res = await fetch('/api/telegram', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, service, message }),
-      });
-      const data = await res.json();
-      if (data.success) {
+      let sentSuccess = false;
+
+      // 1. Try server backend route first if available
+      try {
+        const res = await fetch('/api/telegram', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, phone, service, message }),
+        });
+        const contentType = res.headers.get('content-type');
+        if (res.ok && contentType && contentType.includes('application/json')) {
+          const data = await res.json();
+          if (data.success) {
+            sentSuccess = true;
+          }
+        }
+      } catch {
+        // Fallback to direct client API call
+      }
+
+      // 2. Fallback: Direct client-side request to Telegram Bot API (works on static hosting like GitHub Pages)
+      if (!sentSuccess) {
+        const botToken = '9282002540:AAHtKUAyqkqXyzmFOjTZEQlVpPG8vC-U_Mo';
+        const chatId = '324919537';
+        const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: text,
+            parse_mode: 'Markdown',
+          }),
+        });
+        const tgData = await tgRes.json();
+        if (tgData.ok) {
+          sentSuccess = true;
+        } else {
+          throw new Error(tgData.description || 'Ошибка Telegram API');
+        }
+      }
+
+      if (sentSuccess) {
         setStatus('success');
       } else {
         setStatus('error');
-        setErrorMessage(data.error || 'Ошибка отправки');
+        setErrorMessage('Не удалось отправить заявку. Попробуйте ещё раз.');
       }
     } catch (err: any) {
       setStatus('error');
-      setErrorMessage(err.message || 'Ошибка сети');
+      setErrorMessage(err.message || 'Ошибка сети при отправке заявки');
     }
   };
 
