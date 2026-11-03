@@ -52,20 +52,18 @@ export default function Fitness() {
         <section className="relative min-h-[calc(100svh-5rem)] flex items-center justify-center overflow-hidden border-b-4 border-white">
           {" "}
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Fit_young_man_caucasian_running_on_machine_treadmill_workout_in_gym.jpg/960px-Fit_young_man_caucasian_running_on_machine_treadmill_workout_in_gym.jpg"
+            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80"
             alt="Gym Background"
             className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity grayscale"
-            referrerPolicy="no-referrer"
-            crossOrigin="anonymous"
           />{" "}
           <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b]/50" />{" "}
           <div className="relative z-10 text-center px-4 md:px-6 w-full max-w-[1600px] mx-auto flex flex-col items-center">
             {" "}
-            <div className="inline-block bg-[#CCFF00] text-black px-4 py-1 font-black uppercase tracking-widest text-sm md:text-base transform -skew-x-12 mb-8 shadow-[4px_4px_0px_white]">
+            <div className="inline-block bg-[#CCFF00] text-black px-3 sm:px-4 py-1 font-black uppercase tracking-widest text-xs sm:text-sm md:text-base transform -skew-x-12 mb-6 sm:mb-8 shadow-[4px_4px_0px_white]">
               {" "}
               Хватит искать оправдания{" "}
             </div>{" "}
-            <h1 className="text-6xl sm:text-7xl md:text-9xl font-black uppercase italic tracking-tighter leading-[0.85] text-white mb-8 transform -skew-x-6 drop-shadow-[8px_8px_0px_#CCFF00]">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black uppercase italic tracking-tighter leading-[0.9] sm:leading-[0.85] text-white mb-6 sm:mb-8 transform -skew-x-6 drop-shadow-[4px_4px_0px_#CCFF00] sm:drop-shadow-[8px_8px_0px_#CCFF00]">
               {" "}
               Построй
               <br />
@@ -73,23 +71,23 @@ export default function Fitness() {
               <br />
               Наследие{" "}
             </h1>{" "}
-            <p className="text-white/80 text-lg md:text-2xl font-bold uppercase tracking-wide mb-12 max-w-2xl mx-auto bg-black/50 p-4 border-l-4 border-[#CCFF00]">
+            <p className="text-white/80 text-sm sm:text-lg md:text-2xl font-bold uppercase tracking-wide mb-8 sm:mb-12 max-w-2xl mx-auto bg-black/50 p-3 sm:p-4 border-l-4 border-[#CCFF00]">
               {" "}
               Жесткие тренировки. Реальные результаты. Никакого гламура — только
               железо и пот.{" "}
             </p>{" "}
-            <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto px-4 sm:px-0">
               {" "}
               <a
                 href="#pricing"
-                className="bg-[#CCFF00] text-black px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl font-black uppercase tracking-widest transform -skew-x-12 shadow-[8px_8px_0px_white] active:translate-x-2 active:translate-y-2 active:shadow-none flex items-center justify-center gap-3"
+                className="bg-[#CCFF00] text-black px-6 sm:px-8 md:px-12 py-3.5 sm:py-4 md:py-6 text-base sm:text-lg md:text-xl font-black uppercase tracking-widest transform -skew-x-12 shadow-[4px_4px_0px_white] sm:shadow-[8px_8px_0px_white] active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center justify-center gap-3"
               >
                 {" "}
-                Начать сейчас <Flame size={24} />{" "}
+                Начать сейчас <Flame size={20} className="sm:w-6 sm:h-6" />{" "}
               </a>{" "}
               <a
                 href="#contact"
-                className="bg-transparent border-4 border-white text-white px-8 md:px-12 py-4 md:py-6 text-lg md:text-xl font-black uppercase tracking-widest transform -skew-x-12 shadow-[8px_8px_0px_#CCFF00] active:translate-x-2 active:translate-y-2 active:shadow-none flex items-center justify-center gap-3"
+                className="bg-transparent border-2 sm:border-4 border-white text-white px-6 sm:px-8 md:px-12 py-3.5 sm:py-4 md:py-6 text-base sm:text-lg md:text-xl font-black uppercase tracking-widest transform -skew-x-12 shadow-[4px_4px_0px_#CCFF00] sm:shadow-[8px_8px_0px_#CCFF00] active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center justify-center gap-3"
               >
                 {" "}
                 Пробное занятие{" "}
@@ -210,17 +208,17 @@ export default function Fitness() {
               {
                 name: "Елена",
                 spec: "Главный тренер / Кроссфит",
-                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Two_people_in_a_gym_using_BOSU_balls.jpg/960px-Two_people_in_a_gym_using_BOSU_balls.jpg",
+                img: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&q=80",
               },
               {
                 name: "Андрей",
                 spec: "Тяжелая атлетика",
-                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Man_lifting_a_heavy_barbell.jpg/960px-Man_lifting_a_heavy_barbell.jpg",
+                img: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&q=80",
               },
               {
                 name: "Максим",
                 spec: "Бокс / ММА",
-                img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/TwoDumbbells.JPG/500px-TwoDumbbells.JPG",
+                img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=800&q=80",
               },
             ].map((t, i) => (
               <div
@@ -234,8 +232,6 @@ export default function Fitness() {
                     src={t.img}
                     alt={t.name}
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                    crossOrigin="anonymous"
                   />{" "}
                 </div>{" "}
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80" />{" "}

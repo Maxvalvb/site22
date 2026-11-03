@@ -90,11 +90,9 @@ export default function Construction() {
           <div className="w-full md:w-1/2 relative min-h-[40vh] md:min-h-full bg-[#111]">
             {" "}
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Construction_site_in_Cologne%2C_Germany_%282017%29.jpg/960px-Construction_site_in_Cologne%2C_Germany_%282017%29.jpg"
+              src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?w=1200&q=80"
               alt="Architecture"
               className="absolute inset-0 w-full h-full object-cover opacity-70 mix-blend-luminosity"
-              referrerPolicy="no-referrer"
-              crossOrigin="anonymous"
             />{" "}
             <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent" />{" "}
             <div className="absolute bottom-6 right-6 text-right">
@@ -213,16 +211,16 @@ export default function Construction() {
               {" "}
               {[
                 {
-                  title: 'Технопарк"Инновация"',
+                  title: 'Технопарк "Инновация"',
                   type: "Промышленный объект",
                   area: "120 000 м²",
-                  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Moscow-City_2025.jpg/960px-Moscow-City_2025.jpg",
+                  img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
                 },
                 {
-                  title: 'Штаб-квартира"Нефтегаз"',
+                  title: 'Штаб-квартира "Нефтегаз"',
                   type: "Коммерческая недвижимость",
                   area: "45 000 м²",
-                  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/%D0%9B%D0%B0%D1%85%D1%82%D0%B0_%D1%86%D0%B5%D0%BD%D1%82%D1%80_2021.jpg/960px-%D0%9B%D0%B0%D1%85%D1%82%D0%B0_%D1%86%D0%B5%D0%BD%D1%82%D1%80_2021.jpg",
+                  img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
                 },
               ].map((p, i) => (
                 <div
@@ -234,8 +232,6 @@ export default function Construction() {
                     src={p.img}
                     alt={p.title}
                     className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-luminosity"
-                    referrerPolicy="no-referrer"
-                    crossOrigin="anonymous"
                   />{" "}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/20 to-transparent" />{" "}
                   {/* Technical Overlay */}{" "}
@@ -311,7 +307,7 @@ export default function Construction() {
         {/* 7. Process */}{" "}
         <section className="py-16 md:py-24 px-4 md:px-6 border-b border-white/10 relative overflow-hidden">
           {" "}
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/blueprint.png')] opacity-5 pointer-events-none" />{" "}
+          <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none" />{" "}
           <div className="max-w-[1600px] mx-auto relative z-10">
             {" "}
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-10 md:mb-16">
@@ -419,17 +415,17 @@ export default function Construction() {
                 {
                   name: "Михаил Волков",
                   role: "Генеральный директор",
-                  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Outdoors-man-portrait_%28cropped%29.jpg/800px-Outdoors-man-portrait_%28cropped%29.jpg",
+                  img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
                 },
                 {
-                  name: "Елена Смирнова",
+                  name: "Алексей Смирнов",
                   role: "Главный инженер",
-                  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Pierre-Person.jpg/800px-Pierre-Person.jpg",
+                  img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
                 },
                 {
                   name: "Дмитрий Соколов",
                   role: "Руководитель проектов",
-                  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Teofil_Avramov_The_Builder.jpg/500px-Teofil_Avramov_The_Builder.jpg",
+                  img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
                 },
               ].map((t, i) => (
                 <div key={i} className="group">
@@ -440,8 +436,6 @@ export default function Construction() {
                       src={t.img}
                       alt={t.name}
                       className="w-full h-full object-cover grayscale opacity-80"
-                      referrerPolicy="no-referrer"
-                      crossOrigin="anonymous"
                     />{" "}
                   </div>{" "}
                   <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-wide mb-1">

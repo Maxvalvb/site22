@@ -33,11 +33,9 @@ export default function Restaurant() {
         <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden pt-16 md:pt-0">
           {" "}
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/960px-Barbieri_-_ViaSophia25668.jpg"
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80"
             alt="Restaurant Background"
             className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity"
-            referrerPolicy="no-referrer"
-            crossOrigin="anonymous"
           />{" "}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]" />{" "}
           <div className="relative z-10 text-center px-4 md:px-6 max-w-4xl mx-auto mt-12 md:mt-20">
@@ -45,7 +43,7 @@ export default function Restaurant() {
             <div className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-[#d4af37] mb-6 md:mb-8">
               Высокая кухня
             </div>{" "}
-            <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif font-light mb-6 md:mb-8 tracking-tight leading-[1.1]">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-light mb-6 md:mb-8 tracking-tight leading-[1.1]">
               {" "}
               Вкус как
               <br />
@@ -88,11 +86,9 @@ export default function Restaurant() {
             <div className="aspect-[3/4] bg-[#111] relative overflow-hidden order-2 md:order-1">
               {" "}
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Chef-Ashwani-portrait-2026.jpg/800px-Chef-Ashwani-portrait-2026.jpg"
+                src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=800&q=80"
                 alt="Chef"
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-80"
-                referrerPolicy="no-referrer"
-                crossOrigin="anonymous"
               />{" "}
             </div>{" "}
             <div className="order-1 md:order-2">
@@ -248,11 +244,9 @@ export default function Restaurant() {
             <div className="aspect-square bg-[#111] overflow-hidden">
               {" "}
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Wine_cellar.jpg/960px-Wine_cellar.jpg"
+                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80"
                 alt="Wine"
                 className="w-full h-full object-cover opacity-70"
-                referrerPolicy="no-referrer"
-                crossOrigin="anonymous"
               />{" "}
             </div>{" "}
           </div>{" "}
@@ -275,20 +269,18 @@ export default function Restaurant() {
           <div className="flex gap-4 md:gap-6 px-4 md:px-6 overflow-x-auto pb-8 md:pb-12 snap-x snap-mandatory hide-scrollbar">
             {" "}
             {[
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Barbieri_-_ViaSophia25668.jpg/960px-Barbieri_-_ViaSophia25668.jpg",
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Beef_fillet_steak_with_mushrooms.jpg/960px-Beef_fillet_steak_with_mushrooms.jpg",
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_platter.jpg/960px-Sushi_platter.jpg",
+              "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80",
+              "https://images.unsplash.com/photo-1558030006-450675393462?w=800&q=80",
+              "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
             ].map((img, i) => (
-              <div key={i} className="min-w-[85vw] md:min-w-[40vw] snap-center">
+              <div key={i} className="w-[80vw] max-w-[460px] md:w-[45vw] lg:w-[400px] shrink-0 snap-center">
                 {" "}
-                <div className="aspect-[4/3] overflow-hidden bg-[#111]">
+                <div className="aspect-[4/3] overflow-hidden bg-[#111] rounded-lg">
                   {" "}
                   <img
                     src={img}
                     alt="Interior"
                     className="w-full h-full object-cover opacity-60"
-                    referrerPolicy="no-referrer"
-                    crossOrigin="anonymous"
                   />{" "}
                 </div>{" "}
               </div>
@@ -303,7 +295,7 @@ export default function Restaurant() {
           {" "}
           <div className="bg-[#111] p-8 sm:p-12 md:p-24 text-center relative overflow-hidden">
             {" "}
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10" />{" "}
+            <div className="absolute inset-0 bg-radial-gradient from-white/5 to-transparent opacity-30" />{" "}
             <div className="relative z-10 max-w-2xl mx-auto">
               {" "}
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-light mb-6 md:mb-8">
